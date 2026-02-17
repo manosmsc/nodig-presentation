@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF6600;
+  --color-pipe-gray: #6C7A86;
+  --color-cast-iron: #1A1F24;
+  --color-ambient-light: #F8F9FA;
+}
