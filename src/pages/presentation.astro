@@ -99,32 +99,22 @@ import '../styles/global.css';
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
 
-    /* ── Concept 2: Innovation Pillars ── */
-    .c2-pillar {
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .c2-pillar:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-    }
-
-    /* ── Concept 2: Cinematic Carousel ── */
-    .carousel-slide-img {
+    /* ── Concept 2: Editorial Carousel ── */
+    .ed-img {
       position: absolute;
       inset: 0;
-      transform: translateX(-101%);
-      transition: transform 0.9s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+      transform: translateX(-101%) scale(0.95);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
-    .carousel-slide-img.active {
-      transform: translateX(0);
+    .ed-img.active {
+      transform: translateX(0) scale(1);
     }
-    .carousel-slide-img.exit {
-      transform: translateX(101%);
+    .ed-img.exit {
+      transform: translateX(101%) scale(0.95);
     }
 
-    .carousel-slide-text {
+    .ed-text {
       position: absolute;
       inset: 0;
       display: flex;
@@ -132,53 +122,48 @@ import '../styles/global.css';
       justify-content: center;
       pointer-events: none;
     }
-    .carousel-slide-text.active {
-      pointer-events: auto;
-    }
+    .ed-text.active { pointer-events: auto; }
 
-    .carousel-text-item {
-      transform: translateY(-30px);
+    .ed-text-item {
+      transform: translateY(-40px);
       opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96),
-                  opacity 0.6s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .carousel-slide-text.active .carousel-text-item {
+    .ed-text.active .ed-text-item {
       transform: translateY(0);
       opacity: 1;
     }
-    .carousel-slide-text.active .carousel-text-item:nth-child(1) { transition-delay: 0.15s; }
-    .carousel-slide-text.active .carousel-text-item:nth-child(2) { transition-delay: 0.25s; }
-    .carousel-slide-text.active .carousel-text-item:nth-child(3) { transition-delay: 0.4s; }
-    .carousel-slide-text.active .carousel-text-item:nth-child(4) { transition-delay: 0.55s; }
+    .ed-text.active .ed-text-item:nth-child(1) { transition-delay: 0.1s; }
+    .ed-text.active .ed-text-item:nth-child(2) { transition-delay: 0.2s; }
+    .ed-text.active .ed-text-item:nth-child(3) { transition-delay: 0.35s; }
+    .ed-text.active .ed-text-item:nth-child(4) { transition-delay: 0.5s; }
 
-    .carousel-slide-text.exit .carousel-text-item {
-      transform: translateY(30px);
+    .ed-text.exit .ed-text-item {
+      transform: translateY(40px);
       opacity: 0;
       transition-delay: 0s;
     }
 
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+    .ed-dot {
+      width: 40px;
+      height: 2px;
+      background: rgba(26, 31, 36, 0.1);
       border: none;
       cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+      transition: background 0.5s cubic-bezier(0.22, 1, 0.36, 1);
       padding: 0;
     }
-    .carousel-dot.active {
-      background: #FF6600;
-      width: 28px;
-      border-radius: 4px;
+    .ed-dot.active {
+      background: #1A1F24;
     }
 
-    @keyframes carousel-progress {
+    @keyframes ed-progress {
       from { width: 0; }
       to { width: 100%; }
     }
-    .carousel-progress-bar {
-      animation: carousel-progress 6s linear;
+    .ed-progress-fill {
+      animation: ed-progress 7s linear;
     }
   </style>
 </head>
@@ -557,288 +542,128 @@ import '../styles/global.css';
           </div>
         </div>
 
-        <!-- ── Process & Innovation Section ── -->
-        <div class="mb-20">
-          <div class="text-center mb-14 fade-up">
-            <p class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em] mb-2">Γιατί Εμάς</p>
-            <h2 class="text-2xl md:text-3xl font-black text-cast-iron tracking-tight">Καινοτομία σε Κάθε Βήμα</h2>
-          </div>
+        <!-- ── Editorial Project Carousel ── -->
+        <div id="ed-carousel" class="mb-24 fade-up">
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
 
-            <!-- PROCESS COLUMN -->
-            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up">
-              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Η Διαδικασία</p>
-
-              <div class="space-y-0">
-                <!-- Step 1 -->
-                <div class="flex gap-4">
-                  <div class="flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">01</div>
-                    <div class="w-px flex-1 bg-gradient-to-b from-brand-orange/40 to-pipe-gray/15 my-1"></div>
-                  </div>
-                  <div class="pb-6">
-                    <h4 class="font-bold text-cast-iron text-sm mb-1">Διάγνωση</h4>
-                    <p class="text-pipe-gray text-xs leading-relaxed">Βιντεοσκόπηση & ακριβής χαρτογράφηση του αγωγού σας</p>
-                  </div>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex gap-4">
-                  <div class="flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-cast-iron text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">02</div>
-                    <div class="w-px flex-1 bg-gradient-to-b from-pipe-gray/30 to-pipe-gray/10 my-1"></div>
-                  </div>
-                  <div class="pb-6">
-                    <h4 class="font-bold text-cast-iron text-sm mb-1">Σχεδιασμός</h4>
-                    <p class="text-pipe-gray text-xs leading-relaxed">Εξατομικευμένη λύση προσαρμοσμένη στις ανάγκες σας</p>
-                  </div>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex gap-4">
-                  <div class="flex flex-col items-center">
-                    <div class="w-8 h-8 rounded-full bg-cast-iron text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">03</div>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-cast-iron text-sm mb-1">Εκτέλεση</h4>
-                    <p class="text-pipe-gray text-xs leading-relaxed">Αποκατάσταση σε λιγότερο από 24 ώρες</p>
+            <!-- IMAGE COLUMN (Left) -->
+            <div class="relative aspect-[4/3] md:aspect-auto md:min-h-[560px] overflow-hidden">
+              <!-- Slide 1 image -->
+              <div class="ed-img active" data-slide="0">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4C5B5] via-[#C9BBA8] to-[#B8A896] flex items-center justify-center">
+                  <div class="relative text-center">
+                    <svg class="w-24 h-24 mx-auto text-cast-iron/[0.07] mb-3" fill="none" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                    <p class="text-cast-iron/20 text-xs font-medium tracking-wider uppercase">Φωτογραφία CIPP Relining</p>
                   </div>
                 </div>
               </div>
+              <!-- Slide 2 image -->
+              <div class="ed-img" data-slide="1">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#C5CCD4] via-[#B5BCC4] to-[#A8AFB8] flex items-center justify-center">
+                  <div class="relative text-center">
+                    <svg class="w-24 h-24 mx-auto text-cast-iron/[0.07] mb-3" fill="none" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                    <p class="text-cast-iron/20 text-xs font-medium tracking-wider uppercase">Φωτογραφία Pipe Bursting</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 3 image -->
+              <div class="ed-img" data-slide="2">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#D4D0C5] via-[#C9C5BA] to-[#BEB8A8] flex items-center justify-center">
+                  <div class="relative text-center">
+                    <svg class="w-24 h-24 mx-auto text-cast-iron/[0.07] mb-3" fill="none" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                    <p class="text-cast-iron/20 text-xs font-medium tracking-wider uppercase">Βιντεοσκόπηση Αγωγού</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide counter -->
+              <div class="absolute top-8 left-8 z-10">
+                <span id="ed-counter" class="text-cast-iron/25 text-sm font-mono tracking-[0.15em]">01 — 03</span>
+              </div>
             </div>
 
-            <!-- INNOVATION COLUMN -->
-            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up fade-up-delay-1">
-              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Καινοτομία</p>
-
-              <div class="mb-6">
-                <p class="text-5xl md:text-6xl font-black text-cast-iron tracking-tighter leading-none">
-                  0<span class="text-brand-orange">cm</span>
+            <!-- TEXT COLUMN (Right) -->
+            <div class="relative overflow-hidden min-h-[380px] md:min-h-[560px]">
+              <!-- Slide 1 text -->
+              <div class="ed-text active px-8 md:px-14 lg:px-20 py-12 md:py-0" data-slide="0">
+                <p class="ed-text-item text-[11px] uppercase tracking-[0.3em] text-pipe-gray font-medium mb-8">Επένδυση CIPP</p>
+                <h3 class="ed-text-item text-[1.75rem] md:text-[2.25rem] lg:text-[2.8rem] font-black text-cast-iron leading-[1.06] tracking-tight mb-8">
+                  Αποκατάσταση<br />Κεντρικού<br />Αγωγού
+                </h3>
+                <p class="ed-text-item text-pipe-gray text-[13px] leading-[1.85] mb-10 max-w-sm">
+                  Πλήρης εσωτερική επένδυση 120 μέτρων κεντρικού αγωγού αποχέτευσης σε πολυκατοικία 6 ορόφων. Χωρίς εκσκαφή, χωρίς μπάζα, χωρίς διακοπή λειτουργίας. Η ρητίνη σκληραίνει εντός του αγωγού — διάρκεια ζωής 50+ χρόνια.
                 </p>
-                <p class="text-cast-iron font-bold text-lg mt-2">Εκσκαφής</p>
-              </div>
-
-              <p class="text-pipe-gray text-sm leading-relaxed mb-6">
-                Η τεχνολογία CIPP δημιουργεί νέο σωλήνα μέσα στον παλιό. Κανένα σκάψιμο. Κανένα μπάζο. Κανένα χάος.
-              </p>
-
-              <div class="flex items-center gap-3 pt-5 border-t border-pipe-gray/10">
-                <div class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  <span class="text-cast-iron text-xs font-semibold">50+ χρόνια ζωή</span>
-                </div>
-                <div class="w-px h-4 bg-pipe-gray/15"></div>
-                <div class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                  <span class="text-cast-iron text-xs font-semibold">CE Certified</span>
+                <div class="ed-text-item flex items-center justify-between">
+                  <a href="#" class="group inline-flex items-center gap-3 text-cast-iron text-sm font-semibold">
+                    Δείτε Περισσότερα
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"/></svg>
+                  </a>
+                  <span class="text-pipe-gray/30 text-xs font-mono hidden sm:block">Γλυφάδα · 120m · 8ω</span>
                 </div>
               </div>
-            </div>
 
-            <!-- DIFFERENTIATION COLUMN -->
-            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up fade-up-delay-2">
-              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Η Διαφορά</p>
-
-              <!-- No Dig -->
-              <div class="mb-5">
-                <div class="flex items-center gap-2 mb-3">
-                  <div class="w-2.5 h-2.5 rounded-full bg-brand-orange"></div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-cast-iron">No Dig</span>
+              <!-- Slide 2 text -->
+              <div class="ed-text px-8 md:px-14 lg:px-20 py-12 md:py-0" data-slide="1">
+                <p class="ed-text-item text-[11px] uppercase tracking-[0.3em] text-pipe-gray font-medium mb-8">Pipe Bursting</p>
+                <h3 class="ed-text-item text-[1.75rem] md:text-[2.25rem] lg:text-[2.8rem] font-black text-cast-iron leading-[1.06] tracking-tight mb-8">
+                  Αντικατάσταση<br />Αποχέτευσης<br />Χωρίς Σκάψιμο
+                </h3>
+                <p class="ed-text-item text-pipe-gray text-[13px] leading-[1.85] mb-10 max-w-sm">
+                  Αντικατάσταση 85 μέτρων αγωγού σε λειτουργούντα εμπορικό κέντρο. Μηδενική διακοπή εργασιών. Ο νέος σωλήνας πολυαιθυλενίου τραβιέται μέσα, σπάζοντας τον παλιό — μία μέρα, μηδέν αναστάτωση.
+                </p>
+                <div class="ed-text-item flex items-center justify-between">
+                  <a href="#" class="group inline-flex items-center gap-3 text-cast-iron text-sm font-semibold">
+                    Δείτε Περισσότερα
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"/></svg>
+                  </a>
+                  <span class="text-pipe-gray/30 text-xs font-mono hidden sm:block">Μαρούσι · 85m · 1η</span>
                 </div>
-                <ul class="space-y-2.5 pl-[18px]">
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                    <span class="text-cast-iron text-xs">Μηδέν εκσκαφή</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                    <span class="text-cast-iron text-xs">Ολοκλήρωση σε ώρες</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                    <span class="text-cast-iron text-xs">Εγγύηση 10+ ετών</span>
-                  </li>
-                </ul>
               </div>
 
-              <!-- Traditional -->
-              <div class="pt-5 border-t border-pipe-gray/10">
-                <div class="flex items-center gap-2 mb-3">
-                  <div class="w-2.5 h-2.5 rounded-full bg-pipe-gray/30"></div>
-                  <span class="text-xs font-bold uppercase tracking-wider text-pipe-gray">Παραδοσιακή Μέθοδος</span>
+              <!-- Slide 3 text -->
+              <div class="ed-text px-8 md:px-14 lg:px-20 py-12 md:py-0" data-slide="2">
+                <p class="ed-text-item text-[11px] uppercase tracking-[0.3em] text-pipe-gray font-medium mb-8">Βιντεοσκόπηση + CIPP</p>
+                <h3 class="ed-text-item text-[1.75rem] md:text-[2.25rem] lg:text-[2.8rem] font-black text-cast-iron leading-[1.06] tracking-tight mb-8">
+                  Διάγνωση &<br />Αποκατάσταση<br />Υπογείου
+                </h3>
+                <p class="ed-text-item text-pipe-gray text-[13px] leading-[1.85] mb-10 max-w-sm">
+                  Εντοπισμός 3 ρωγμών σε αγωγό ύδρευσης μέσω ρομποτικής κάμερας υψηλής ανάλυσης. Άμεση αποκατάσταση με τοπική επένδυση CIPP, χωρίς σπάσιμο δαπέδων ή τοίχων.
+                </p>
+                <div class="ed-text-item flex items-center justify-between">
+                  <a href="#" class="group inline-flex items-center gap-3 text-cast-iron text-sm font-semibold">
+                    Δείτε Περισσότερα
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"/></svg>
+                  </a>
+                  <span class="text-pipe-gray/30 text-xs font-mono hidden sm:block">Κηφισιά · 3 σημεία · 5ω</span>
                 </div>
-                <ul class="space-y-2.5 pl-[18px]">
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-                    <span class="text-pipe-gray text-xs">Εκτεταμένο σκάψιμο</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-                    <span class="text-pipe-gray text-xs">Εβδομάδες εργασιών</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
-                    <span class="text-pipe-gray text-xs">Αβέβαιη αντοχή</span>
-                  </li>
-                </ul>
               </div>
             </div>
 
           </div>
-        </div>
 
-        <!-- ── Cinematic Split-Screen Carousel ── -->
-        <div class="mb-20 fade-up">
-          <div class="text-center mb-14">
-            <p class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em] mb-2">Τα Έργα Μας</p>
-            <h2 class="text-2xl md:text-3xl font-black text-cast-iron tracking-tight">Δουλειά που Μιλάει<br class="hidden sm:block" /> Μόνη Της</h2>
-          </div>
-
-          <div id="c2-carousel" class="relative overflow-hidden rounded-[2rem] bg-cast-iron shadow-2xl h-[620px] md:h-[480px]">
-            <div class="flex flex-col md:flex-row h-full">
-
-              <!-- IMAGE SIDE -->
-              <div class="relative w-full md:w-[55%] h-[260px] md:h-full flex-shrink-0 overflow-hidden">
-                <!-- Slide 1 image -->
-                <div class="carousel-slide-img active" data-slide="0">
-                  <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 via-cast-iron/60 to-pipe-gray/30 flex items-center justify-center">
-                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
-                    <div class="relative text-center">
-                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
-                      <p class="text-white/20 text-sm font-medium">Φωτογραφία έργου CIPP</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Slide 2 image -->
-                <div class="carousel-slide-img" data-slide="1">
-                  <div class="absolute inset-0 bg-gradient-to-br from-pipe-gray/25 via-cast-iron/60 to-brand-orange/15 flex items-center justify-center">
-                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
-                    <div class="relative text-center">
-                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
-                      <p class="text-white/20 text-sm font-medium">Φωτογραφία Pipe Bursting</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Slide 3 image -->
-                <div class="carousel-slide-img" data-slide="2">
-                  <div class="absolute inset-0 bg-gradient-to-br from-cast-iron/50 via-pipe-gray/20 to-brand-orange/20 flex items-center justify-center">
-                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
-                    <div class="relative text-center">
-                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
-                      <p class="text-white/20 text-sm font-medium">Βιντεοσκόπηση αγωγού</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide counter -->
-                <div class="absolute top-6 left-6 z-10">
-                  <span id="c2-carousel-counter" class="text-white/30 text-sm font-mono tracking-wider">01 / 03</span>
-                </div>
-              </div>
-
-              <!-- TEXT SIDE -->
-              <div class="relative w-full md:w-[45%] flex-1 md:h-full overflow-hidden">
-                <!-- Slide 1 text -->
-                <div class="carousel-slide-text active p-8 md:p-12" data-slide="0">
-                  <div class="carousel-text-item">
-                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Επένδυση CIPP</span>
-                  </div>
-                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Αποκατάσταση Κεντρικού Αγωγού Πολυκατοικίας</h3>
-                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Πλήρης εσωτερική επένδυση 120 μέτρων κεντρικού αγωγού αποχέτευσης σε πολυκατοικία 6 ορόφων — χωρίς καμία εκσκαφή και χωρίς διακοπή λειτουργίας. Ολοκλήρωση σε 8 ώρες.</p>
-                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
-                      <p class="text-white font-semibold">Γλυφάδα, Αττική</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Μήκος</p>
-                      <p class="text-white font-semibold">120 μέτρα</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
-                      <p class="text-white font-semibold">8 ώρες</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 2 text -->
-                <div class="carousel-slide-text p-8 md:p-12" data-slide="1">
-                  <div class="carousel-text-item">
-                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Pipe Bursting</span>
-                  </div>
-                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Αντικατάσταση Αποχέτευσης Εμπορικού Κέντρου</h3>
-                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Πλήρης αντικατάσταση 85 μέτρων αγωγού αποχέτευσης με τη μέθοδο Pipe Bursting σε λειτουργούντα εμπορικό κέντρο — μηδενική διακοπή εργασιών.</p>
-                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
-                      <p class="text-white font-semibold">Μαρούσι, Αττική</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Μήκος</p>
-                      <p class="text-white font-semibold">85 μέτρα</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
-                      <p class="text-white font-semibold">1 ημέρα</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 3 text -->
-                <div class="carousel-slide-text p-8 md:p-12" data-slide="2">
-                  <div class="carousel-text-item">
-                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Βιντεοσκόπηση + CIPP</span>
-                  </div>
-                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Διάγνωση & Αποκατάσταση Διαρροής Υπογείου</h3>
-                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Εντοπισμός 3 ρωγμών σε αγωγό ύδρευσης μέσω ρομποτικής κάμερας και άμεση αποκατάσταση με τοπική επένδυση CIPP — ολοκλήρωση σε μία επίσκεψη.</p>
-                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
-                      <p class="text-white font-semibold">Κηφισιά, Αττική</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Ρωγμές</p>
-                      <p class="text-white font-semibold">3 σημεία</p>
-                    </div>
-                    <div class="w-px bg-white/10 hidden sm:block"></div>
-                    <div>
-                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
-                      <p class="text-white font-semibold">5 ώρες</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+          <!-- Progress bar + Navigation -->
+          <div class="mt-10 md:mt-12">
+            <div class="h-px bg-cast-iron/8">
+              <div id="ed-progress" class="h-full bg-cast-iron ed-progress-fill"></div>
             </div>
-
-            <!-- Navigation Controls -->
-            <div class="absolute bottom-0 inset-x-0 z-20">
-              <!-- Progress bar -->
-              <div class="h-[2px] bg-white/5">
-                <div id="c2-carousel-progress" class="h-full bg-brand-orange carousel-progress-bar"></div>
+            <div class="flex items-center justify-between mt-6">
+              <div class="flex items-center gap-2" id="ed-dots">
+                <button class="ed-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="ed-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="ed-dot" data-dot="2" aria-label="Slide 3"></button>
               </div>
-              <!-- Nav buttons & dots -->
-              <div class="flex items-center justify-between px-6 md:px-8 py-4">
-                <div class="flex items-center gap-3">
-                  <button id="c2-carousel-prev" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all cursor-pointer" aria-label="Previous slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
-                  </button>
-                  <button id="c2-carousel-next" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all cursor-pointer" aria-label="Next slide">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
-                  </button>
-                </div>
-                <div class="flex items-center gap-2" id="c2-carousel-dots">
-                  <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
-                  <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
-                  <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
-                </div>
+              <div class="flex items-center gap-3">
+                <button id="ed-prev" class="w-10 h-10 rounded-full border border-cast-iron/10 flex items-center justify-center text-cast-iron/30 hover:text-cast-iron hover:border-cast-iron/30 transition-all cursor-pointer" aria-label="Previous slide">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+                </button>
+                <button id="ed-next" class="w-10 h-10 rounded-full border border-cast-iron/10 flex items-center justify-center text-cast-iron/30 hover:text-cast-iron hover:border-cast-iron/30 transition-all cursor-pointer" aria-label="Next slide">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                </button>
               </div>
             </div>
           </div>
+
         </div>
 
         <!-- Reviews -->
@@ -1046,96 +871,83 @@ import '../styles/global.css';
       heroObserver.observe(c2Hero);
     }
 
-    // ── Concept 2: Cinematic Carousel ──
-    const carousel = document.getElementById('c2-carousel');
-    if (carousel) {
-      const imgSlides = carousel.querySelectorAll('.carousel-slide-img');
-      const textSlides = carousel.querySelectorAll('.carousel-slide-text');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      const prevBtn = document.getElementById('c2-carousel-prev');
-      const nextBtn = document.getElementById('c2-carousel-next');
-      const counter = document.getElementById('c2-carousel-counter');
-      const progressBar = document.getElementById('c2-carousel-progress');
-      const totalSlides = imgSlides.length;
-      let currentSlide = 0;
-      let isTransitioning = false;
-      let autoplayTimer: ReturnType<typeof setInterval>;
-      const AUTOPLAY_DELAY = 6000;
-      const TRANSITION_DURATION = 900;
+    // ── Concept 2: Editorial Carousel ──
+    const edCarousel = document.getElementById('ed-carousel');
+    if (edCarousel) {
+      const edImgs = edCarousel.querySelectorAll('.ed-img');
+      const edTexts = edCarousel.querySelectorAll('.ed-text');
+      const edDots = edCarousel.querySelectorAll('.ed-dot');
+      const edPrevBtn = document.getElementById('ed-prev');
+      const edNextBtn = document.getElementById('ed-next');
+      const edCounter = document.getElementById('ed-counter');
+      const edProgress = document.getElementById('ed-progress');
+      const edTotal = edImgs.length;
+      let edCurrent = 0;
+      let edLocked = false;
+      let edTimer: ReturnType<typeof setInterval>;
+      const ED_DELAY = 7000;
+      const ED_DURATION = 800;
 
-      function goToSlide(index: number) {
-        if (isTransitioning || index === currentSlide) return;
-        isTransitioning = true;
-        const prevIndex = currentSlide;
-        currentSlide = index;
+      function edGoTo(index: number) {
+        if (edLocked || index === edCurrent) return;
+        edLocked = true;
+        const prev = edCurrent;
+        edCurrent = index;
 
-        // Image: exit current to right, enter new from left
-        imgSlides[prevIndex].classList.remove('active');
-        imgSlides[prevIndex].classList.add('exit');
-        imgSlides[currentSlide].classList.add('active');
+        // Image: slide out right with scale-down, new slides in from left with scale-up
+        edImgs[prev].classList.remove('active');
+        edImgs[prev].classList.add('exit');
+        edImgs[edCurrent].classList.add('active');
 
-        // Text: exit current (drop down + fade), enter new (drop in from top)
-        textSlides[prevIndex].classList.remove('active');
-        textSlides[prevIndex].classList.add('exit');
-        textSlides[currentSlide].classList.add('active');
+        // Text: cascade down to exit, cascade in from top
+        edTexts[prev].classList.remove('active');
+        edTexts[prev].classList.add('exit');
+        edTexts[edCurrent].classList.add('active');
 
         // Update dots
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        edDots.forEach((d, i) => d.classList.toggle('active', i === edCurrent));
 
         // Update counter
-        counter!.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+        edCounter!.textContent = `${String(edCurrent + 1).padStart(2, '0')} — ${String(edTotal).padStart(2, '0')}`;
 
-        // Reset progress bar
-        resetProgress();
+        // Reset progress
+        edResetProgress();
 
-        // Clean up exit classes after transition completes
+        // Clean up after transition
         setTimeout(() => {
-          imgSlides[prevIndex].classList.remove('exit');
-          textSlides[prevIndex].classList.remove('exit');
-          isTransitioning = false;
-        }, TRANSITION_DURATION);
+          edImgs[prev].classList.remove('exit');
+          edTexts[prev].classList.remove('exit');
+          edLocked = false;
+        }, ED_DURATION);
       }
 
-      function nextSlide() {
-        goToSlide((currentSlide + 1) % totalSlides);
+      function edNext() { edGoTo((edCurrent + 1) % edTotal); }
+      function edPrev() { edGoTo((edCurrent - 1 + edTotal) % edTotal); }
+
+      function edResetProgress() {
+        edProgress!.classList.remove('ed-progress-fill');
+        void (edProgress as HTMLElement).offsetWidth;
+        edProgress!.classList.add('ed-progress-fill');
       }
 
-      function prevSlide() {
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-      }
+      function edStart() { edStop(); edResetProgress(); edTimer = setInterval(edNext, ED_DELAY); }
+      function edStop() { clearInterval(edTimer); }
 
-      function resetProgress() {
-        progressBar!.classList.remove('carousel-progress-bar');
-        void (progressBar as HTMLElement).offsetWidth;
-        progressBar!.classList.add('carousel-progress-bar');
-      }
-
-      function startAutoplay() {
-        stopAutoplay();
-        resetProgress();
-        autoplayTimer = setInterval(nextSlide, AUTOPLAY_DELAY);
-      }
-
-      function stopAutoplay() {
-        clearInterval(autoplayTimer);
-      }
-
-      // Navigation events
-      nextBtn!.addEventListener('click', () => { nextSlide(); startAutoplay(); });
-      prevBtn!.addEventListener('click', () => { prevSlide(); startAutoplay(); });
-      dots.forEach(dot => {
+      // Events
+      edNextBtn!.addEventListener('click', () => { edNext(); edStart(); });
+      edPrevBtn!.addEventListener('click', () => { edPrev(); edStart(); });
+      edDots.forEach(dot => {
         dot.addEventListener('click', () => {
-          goToSlide(parseInt((dot as HTMLElement).dataset.dot!));
-          startAutoplay();
+          edGoTo(parseInt((dot as HTMLElement).dataset.dot!));
+          edStart();
         });
       });
 
-      // Pause autoplay on hover, resume on leave
-      carousel.addEventListener('mouseenter', stopAutoplay);
-      carousel.addEventListener('mouseleave', startAutoplay);
+      // Pause on hover
+      edCarousel.addEventListener('mouseenter', edStop);
+      edCarousel.addEventListener('mouseleave', edStart);
 
-      // Start autoplay
-      startAutoplay();
+      edStart();
     }
 
     // ── Concept 2: Grainient WebGL Background ──
