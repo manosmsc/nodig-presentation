@@ -56,19 +56,19 @@ import '../styles/global.css';
       pointer-events: none;
     }
 
-    /* ── Concept 4: Cinematic Nav ── */
-    .c4-nav {
+    /* ── Concept 2: Cinematic Nav ── */
+    .c2-nav {
       position: sticky;
       top: 48px; /* below the presentation nav */
       z-index: 40;
       transition: background .5s cubic-bezier(.22,1,.36,1), border-color .5s ease, box-shadow .5s ease;
     }
-    .c4-nav.is-transparent {
+    .c2-nav.is-transparent {
       background: transparent;
       border-color: transparent;
       box-shadow: none;
     }
-    .c4-nav.is-solid {
+    .c2-nav.is-solid {
       background: rgba(26,31,36,0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -76,25 +76,25 @@ import '../styles/global.css';
       box-shadow: 0 4px 30px rgba(0,0,0,0.15);
     }
 
-    /* ── Concept 4: Hero overlay ── */
-    .c4-hero-overlay {
+    /* ── Concept 2: Hero overlay ── */
+    .c2-hero-overlay {
       background: linear-gradient(to bottom, rgba(26,31,36,0.3) 0%, rgba(26,31,36,0.55) 40%, rgba(26,31,36,0.85) 100%);
     }
 
-    /* ── Concept 4: Cinematic bento ── */
-    .c4-bento {
+    /* ── Concept 2: Cinematic bento ── */
+    .c2-bento {
       transition: transform .4s ease, box-shadow .4s ease;
     }
-    .c4-bento:hover {
+    .c2-bento:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.06);
     }
 
-    /* ── Concept 4: Review card ── */
-    .c4-review {
+    /* ── Concept 2: Review card ── */
+    .c2-review {
       transition: transform .4s ease, box-shadow .4s ease;
     }
-    .c4-review:hover {
+    .c2-review:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
@@ -115,7 +115,7 @@ import '../styles/global.css';
         <a href="#concept-1" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-orange text-white hover:bg-brand-orange/90 transition-colors">
           Minimalism
         </a>
-        <a href="#concept-4" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-colors">
+        <a href="#concept-2" class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-colors">
           Cinematic
         </a>
       </div>
@@ -274,22 +274,22 @@ import '../styles/global.css';
   <div class="h-px bg-gradient-to-r from-transparent via-brand-orange to-transparent"></div>
 
   <!-- ╔══════════════════════════════════════════════════════════════════════╗
-       ║  CONCEPT 4 — "THE CINEMATIC ENGINEER"                              ║
+       ║  CONCEPT 2 — "THE CINEMATIC ENGINEER"                              ║
        ║  Immersive · Scroll-Linked · Corporate Trademark                    ║
        ╚══════════════════════════════════════════════════════════════════════╝ -->
-  <section id="concept-4" class="scroll-mt-14">
+  <section id="concept-2" class="scroll-mt-14 bg-cast-iron">
 
     <!-- Concept Label -->
     <div class="bg-gradient-to-r from-cast-iron via-[#252b31] to-cast-iron text-white text-center py-5 px-4">
-      <p class="text-[11px] uppercase tracking-[0.25em] font-bold text-brand-orange mb-1">Concept 4</p>
+      <p class="text-[11px] uppercase tracking-[0.25em] font-bold text-brand-orange mb-1">Concept 2</p>
       <h2 class="text-xl md:text-2xl font-extrabold tracking-tight">"The Cinematic Engineer"</h2>
       <p class="text-sm mt-1 opacity-60">Immersive Hero · Scroll-Linked Nav · Corporate Footer</p>
     </div>
 
-    <!-- ── 4.1: CONCEPT 4 TRANSPARENT NAV ── -->
-    <nav id="c4-nav" class="c4-nav border-b is-transparent">
+    <!-- ── 2.1: CONCEPT 2 TRANSPARENT NAV ── -->
+    <nav id="c2-nav" class="c2-nav border-b is-transparent">
       <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
-        <a href="#concept-4" class="flex items-center gap-2">
+        <a href="#concept-2" class="flex items-center gap-2">
           <div class="w-8 h-8 bg-brand-orange rounded-lg flex items-center justify-center">
             <span class="text-white font-black text-xs">ND</span>
           </div>
@@ -308,12 +308,12 @@ import '../styles/global.css';
       </div>
     </nav>
 
-    <!-- ── 4.1: FULL VIEWPORT HERO WITH GRAINIENT BACKGROUND ── -->
-    <div id="c4-hero" class="relative h-screen -mt-[64px] flex items-center overflow-hidden">
+    <!-- ── 2.1: FULL VIEWPORT HERO WITH GRAINIENT BACKGROUND ── -->
+    <div id="c2-hero" class="relative h-screen -mt-[64px] flex items-center overflow-hidden">
       <!-- Grainient WebGL canvas (soft animated grainy gradient using palette colors) -->
       <div id="grainient-container" class="absolute inset-0"></div>
       <!-- Dark vignette overlay for text readability -->
-      <div class="absolute inset-0 c4-hero-overlay"></div>
+      <div class="absolute inset-0 c2-hero-overlay"></div>
 
       <!-- Hero content -->
       <div class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 w-full pt-16">
@@ -352,7 +352,7 @@ import '../styles/global.css';
       </div>
     </div>
 
-    <!-- ── 4.2: DETAILED BENTO GRID ── -->
+    <!-- ── 2.2: DETAILED BENTO GRID ── -->
     <div class="bg-ambient-light py-20 md:py-28">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <div class="text-center mb-14 fade-up">
@@ -363,7 +363,7 @@ import '../styles/global.css';
         <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
 
           <!-- Large Box (Left) — CIPP Technology — spans 7 cols, 2 rows -->
-          <div class="c4-bento md:col-span-7 md:row-span-2 bg-white rounded-[1.8rem] border border-pipe-gray/12 overflow-hidden fade-up">
+          <div class="c2-bento md:col-span-7 md:row-span-2 bg-white rounded-[1.8rem] border border-pipe-gray/12 overflow-hidden fade-up">
             <!-- Image placeholder top -->
             <div class="h-48 md:h-64 bg-gradient-to-br from-cast-iron/5 via-pipe-gray/10 to-cast-iron/5 flex items-center justify-center relative">
               <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle, #6C7A86 1px, transparent 1px); background-size: 20px 20px;"></div>
@@ -398,7 +398,7 @@ import '../styles/global.css';
           </div>
 
           <!-- Medium Box (Top Right) — Robotic Camera — spans 5 cols -->
-          <div class="c4-bento md:col-span-5 bg-white rounded-[1.8rem] border border-pipe-gray/12 overflow-hidden fade-up fade-up-delay-1">
+          <div class="c2-bento md:col-span-5 bg-white rounded-[1.8rem] border border-pipe-gray/12 overflow-hidden fade-up fade-up-delay-1">
             <!-- Image placeholder -->
             <div class="h-40 bg-gradient-to-br from-brand-orange/5 to-pipe-gray/10 flex items-center justify-center">
               <div class="text-center">
@@ -413,7 +413,7 @@ import '../styles/global.css';
           </div>
 
           <!-- Medium Box (Bottom Right) — 24h Operational — spans 5 cols -->
-          <div class="c4-bento md:col-span-5 bg-cast-iron rounded-[1.8rem] overflow-hidden text-white fade-up fade-up-delay-2">
+          <div class="c2-bento md:col-span-5 bg-cast-iron rounded-[1.8rem] overflow-hidden text-white fade-up fade-up-delay-2">
             <div class="p-7 md:p-8 flex flex-col justify-between min-h-[200px]">
               <div class="flex items-start justify-between mb-6">
                 <div class="w-12 h-12 bg-brand-orange/15 rounded-2xl flex items-center justify-center">
@@ -432,7 +432,7 @@ import '../styles/global.css';
       </div>
     </div>
 
-    <!-- ── 4.3: REVIEWS & SERVICES WITH SCROLL TRANSITIONS ── -->
+    <!-- ── 2.3: REVIEWS & SERVICES WITH SCROLL TRANSITIONS ── -->
     <!-- NOTE: Elements use .fade-up class which is animated via the global IntersectionObserver script. -->
     <!-- For production, consider using AOS library (aos.init()) for more advanced scroll-linked animations. -->
     <div class="bg-white py-20 md:py-28">
@@ -484,7 +484,7 @@ import '../styles/global.css';
         <!-- Review cards — animated via IntersectionObserver (or AOS library for production) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-          <div class="c4-review fade-up bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
+          <div class="c2-review fade-up bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
             <div class="flex gap-0.5 mb-4">
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -499,7 +499,7 @@ import '../styles/global.css';
             </div>
           </div>
 
-          <div class="c4-review fade-up fade-up-delay-1 bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
+          <div class="c2-review fade-up fade-up-delay-1 bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
             <div class="flex gap-0.5 mb-4">
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -514,7 +514,7 @@ import '../styles/global.css';
             </div>
           </div>
 
-          <div class="c4-review fade-up fade-up-delay-2 bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
+          <div class="c2-review fade-up fade-up-delay-2 bg-ambient-light rounded-2xl border border-pipe-gray/10 p-7">
             <div class="flex gap-0.5 mb-4">
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -533,7 +533,7 @@ import '../styles/global.css';
       </div>
     </div>
 
-    <!-- ── 4.4: TRADEMARK CORPORATE FOOTER ── -->
+    <!-- ── 2.4: TRADEMARK CORPORATE FOOTER ── -->
     <footer class="bg-cast-iron">
       <!-- Main footer -->
       <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-20">
@@ -641,7 +641,7 @@ import '../styles/global.css';
   </footer>
 
 
-  <!-- ── Scroll Reveal + Concept 4 Nav Script + Grainient ── -->
+  <!-- ── Scroll Reveal + Concept 2 Nav Script + Grainient ── -->
   <script>
     import { Renderer, Program, Mesh, Triangle } from 'ogl';
 
@@ -658,29 +658,29 @@ import '../styles/global.css';
     );
     document.querySelectorAll('.fade-up, .accent-line').forEach((el) => observer.observe(el));
 
-    // ── Concept 4: Transparent → Solid navbar on scroll past hero ──
-    const c4Nav = document.getElementById('c4-nav');
-    const c4Hero = document.getElementById('c4-hero');
+    // ── Concept 2: Transparent → Solid navbar on scroll past hero ──
+    const c2Nav = document.getElementById('c2-nav');
+    const c2Hero = document.getElementById('c2-hero');
 
-    if (c4Nav && c4Hero) {
+    if (c2Nav && c2Hero) {
       const heroObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              c4Nav.classList.add('is-transparent');
-              c4Nav.classList.remove('is-solid');
+              c2Nav.classList.add('is-transparent');
+              c2Nav.classList.remove('is-solid');
             } else {
-              c4Nav.classList.remove('is-transparent');
-              c4Nav.classList.add('is-solid');
+              c2Nav.classList.remove('is-transparent');
+              c2Nav.classList.add('is-solid');
             }
           });
         },
         { threshold: 0.15 }
       );
-      heroObserver.observe(c4Hero);
+      heroObserver.observe(c2Hero);
     }
 
-    // ── Concept 4: Grainient WebGL Background ──
+    // ── Concept 2: Grainient WebGL Background ──
     const grainientContainer = document.getElementById('grainient-container');
 
     if (grainientContainer) {
