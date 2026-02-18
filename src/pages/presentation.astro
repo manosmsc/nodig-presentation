@@ -98,6 +98,78 @@ import '../styles/global.css';
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
+
+    /* ── Concept 2: Cinematic Carousel ── */
+    .carousel-slide-img {
+      position: absolute;
+      inset: 0;
+      transform: translateX(-101%);
+      transition: transform 0.9s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+      will-change: transform;
+    }
+    .carousel-slide-img.active {
+      transform: translateX(0);
+    }
+    .carousel-slide-img.exit {
+      transform: translateX(101%);
+    }
+
+    .carousel-slide-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .carousel-slide-text.active {
+      pointer-events: auto;
+    }
+
+    .carousel-text-item {
+      transform: translateY(-30px);
+      opacity: 0;
+      transition: transform 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96),
+                  opacity 0.6s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+    }
+    .carousel-slide-text.active .carousel-text-item {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .carousel-slide-text.active .carousel-text-item:nth-child(1) { transition-delay: 0.15s; }
+    .carousel-slide-text.active .carousel-text-item:nth-child(2) { transition-delay: 0.25s; }
+    .carousel-slide-text.active .carousel-text-item:nth-child(3) { transition-delay: 0.4s; }
+    .carousel-slide-text.active .carousel-text-item:nth-child(4) { transition-delay: 0.55s; }
+
+    .carousel-slide-text.exit .carousel-text-item {
+      transform: translateY(30px);
+      opacity: 0;
+      transition-delay: 0s;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: #FF6600;
+      width: 28px;
+      border-radius: 4px;
+    }
+
+    @keyframes carousel-progress {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .carousel-progress-bar {
+      animation: carousel-progress 6s linear;
+    }
   </style>
 </head>
 
@@ -475,6 +547,161 @@ import '../styles/global.css';
           </div>
         </div>
 
+        <!-- ── Cinematic Split-Screen Carousel ── -->
+        <div class="mb-20 fade-up">
+          <div class="text-center mb-14">
+            <p class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em] mb-2">Τα Έργα Μας</p>
+            <h2 class="text-2xl md:text-3xl font-black text-cast-iron tracking-tight">Δουλειά που Μιλάει<br class="hidden sm:block" /> Μόνη Της</h2>
+          </div>
+
+          <div id="c2-carousel" class="relative overflow-hidden rounded-[2rem] bg-cast-iron shadow-2xl h-[620px] md:h-[480px]">
+            <div class="flex flex-col md:flex-row h-full">
+
+              <!-- IMAGE SIDE -->
+              <div class="relative w-full md:w-[55%] h-[260px] md:h-full flex-shrink-0 overflow-hidden">
+                <!-- Slide 1 image -->
+                <div class="carousel-slide-img active" data-slide="0">
+                  <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/20 via-cast-iron/60 to-pipe-gray/30 flex items-center justify-center">
+                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+                    <div class="relative text-center">
+                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                      <p class="text-white/20 text-sm font-medium">Φωτογραφία έργου CIPP</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 2 image -->
+                <div class="carousel-slide-img" data-slide="1">
+                  <div class="absolute inset-0 bg-gradient-to-br from-pipe-gray/25 via-cast-iron/60 to-brand-orange/15 flex items-center justify-center">
+                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+                    <div class="relative text-center">
+                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                      <p class="text-white/20 text-sm font-medium">Φωτογραφία Pipe Bursting</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 3 image -->
+                <div class="carousel-slide-img" data-slide="2">
+                  <div class="absolute inset-0 bg-gradient-to-br from-cast-iron/50 via-pipe-gray/20 to-brand-orange/20 flex items-center justify-center">
+                    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+                    <div class="relative text-center">
+                      <svg class="w-20 h-20 mx-auto text-white/10 mb-3" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"/></svg>
+                      <p class="text-white/20 text-sm font-medium">Βιντεοσκόπηση αγωγού</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide counter -->
+                <div class="absolute top-6 left-6 z-10">
+                  <span id="c2-carousel-counter" class="text-white/30 text-sm font-mono tracking-wider">01 / 03</span>
+                </div>
+              </div>
+
+              <!-- TEXT SIDE -->
+              <div class="relative w-full md:w-[45%] flex-1 md:h-full overflow-hidden">
+                <!-- Slide 1 text -->
+                <div class="carousel-slide-text active p-8 md:p-12" data-slide="0">
+                  <div class="carousel-text-item">
+                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Επένδυση CIPP</span>
+                  </div>
+                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Αποκατάσταση Κεντρικού Αγωγού Πολυκατοικίας</h3>
+                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Πλήρης εσωτερική επένδυση 120 μέτρων κεντρικού αγωγού αποχέτευσης σε πολυκατοικία 6 ορόφων — χωρίς καμία εκσκαφή και χωρίς διακοπή λειτουργίας. Ολοκλήρωση σε 8 ώρες.</p>
+                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
+                      <p class="text-white font-semibold">Γλυφάδα, Αττική</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Μήκος</p>
+                      <p class="text-white font-semibold">120 μέτρα</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
+                      <p class="text-white font-semibold">8 ώρες</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2 text -->
+                <div class="carousel-slide-text p-8 md:p-12" data-slide="1">
+                  <div class="carousel-text-item">
+                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Pipe Bursting</span>
+                  </div>
+                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Αντικατάσταση Αποχέτευσης Εμπορικού Κέντρου</h3>
+                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Πλήρης αντικατάσταση 85 μέτρων αγωγού αποχέτευσης με τη μέθοδο Pipe Bursting σε λειτουργούντα εμπορικό κέντρο — μηδενική διακοπή εργασιών.</p>
+                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
+                      <p class="text-white font-semibold">Μαρούσι, Αττική</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Μήκος</p>
+                      <p class="text-white font-semibold">85 μέτρα</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
+                      <p class="text-white font-semibold">1 ημέρα</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3 text -->
+                <div class="carousel-slide-text p-8 md:p-12" data-slide="2">
+                  <div class="carousel-text-item">
+                    <span class="inline-block bg-brand-orange/15 text-brand-orange text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">Βιντεοσκόπηση + CIPP</span>
+                  </div>
+                  <h3 class="carousel-text-item text-xl md:text-2xl font-black text-white tracking-tight mb-4 leading-tight">Διάγνωση & Αποκατάσταση Διαρροής Υπογείου</h3>
+                  <p class="carousel-text-item text-pipe-gray text-sm leading-relaxed mb-8">Εντοπισμός 3 ρωγμών σε αγωγό ύδρευσης μέσω ρομποτικής κάμερας και άμεση αποκατάσταση με τοπική επένδυση CIPP — ολοκλήρωση σε μία επίσκεψη.</p>
+                  <div class="carousel-text-item flex flex-wrap gap-x-5 gap-y-3 text-xs">
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Τοποθεσία</p>
+                      <p class="text-white font-semibold">Κηφισιά, Αττική</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Ρωγμές</p>
+                      <p class="text-white font-semibold">3 σημεία</p>
+                    </div>
+                    <div class="w-px bg-white/10 hidden sm:block"></div>
+                    <div>
+                      <p class="text-white/30 uppercase tracking-wider mb-1">Διάρκεια</p>
+                      <p class="text-white font-semibold">5 ώρες</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="absolute bottom-0 inset-x-0 z-20">
+              <!-- Progress bar -->
+              <div class="h-[2px] bg-white/5">
+                <div id="c2-carousel-progress" class="h-full bg-brand-orange carousel-progress-bar"></div>
+              </div>
+              <!-- Nav buttons & dots -->
+              <div class="flex items-center justify-between px-6 md:px-8 py-4">
+                <div class="flex items-center gap-3">
+                  <button id="c2-carousel-prev" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all cursor-pointer" aria-label="Previous slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+                  </button>
+                  <button id="c2-carousel-next" class="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all cursor-pointer" aria-label="Next slide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                  </button>
+                </div>
+                <div class="flex items-center gap-2" id="c2-carousel-dots">
+                  <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+                  <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+                  <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Reviews -->
         <div class="text-center mb-14 fade-up">
           <p class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em] mb-2">Κριτικές Πελατών</p>
@@ -678,6 +905,98 @@ import '../styles/global.css';
         { threshold: 0.15 }
       );
       heroObserver.observe(c2Hero);
+    }
+
+    // ── Concept 2: Cinematic Carousel ──
+    const carousel = document.getElementById('c2-carousel');
+    if (carousel) {
+      const imgSlides = carousel.querySelectorAll('.carousel-slide-img');
+      const textSlides = carousel.querySelectorAll('.carousel-slide-text');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('c2-carousel-prev');
+      const nextBtn = document.getElementById('c2-carousel-next');
+      const counter = document.getElementById('c2-carousel-counter');
+      const progressBar = document.getElementById('c2-carousel-progress');
+      const totalSlides = imgSlides.length;
+      let currentSlide = 0;
+      let isTransitioning = false;
+      let autoplayTimer: ReturnType<typeof setInterval>;
+      const AUTOPLAY_DELAY = 6000;
+      const TRANSITION_DURATION = 900;
+
+      function goToSlide(index: number) {
+        if (isTransitioning || index === currentSlide) return;
+        isTransitioning = true;
+        const prevIndex = currentSlide;
+        currentSlide = index;
+
+        // Image: exit current to right, enter new from left
+        imgSlides[prevIndex].classList.remove('active');
+        imgSlides[prevIndex].classList.add('exit');
+        imgSlides[currentSlide].classList.add('active');
+
+        // Text: exit current (drop down + fade), enter new (drop in from top)
+        textSlides[prevIndex].classList.remove('active');
+        textSlides[prevIndex].classList.add('exit');
+        textSlides[currentSlide].classList.add('active');
+
+        // Update dots
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+
+        // Update counter
+        counter!.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+
+        // Reset progress bar
+        resetProgress();
+
+        // Clean up exit classes after transition completes
+        setTimeout(() => {
+          imgSlides[prevIndex].classList.remove('exit');
+          textSlides[prevIndex].classList.remove('exit');
+          isTransitioning = false;
+        }, TRANSITION_DURATION);
+      }
+
+      function nextSlide() {
+        goToSlide((currentSlide + 1) % totalSlides);
+      }
+
+      function prevSlide() {
+        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+      }
+
+      function resetProgress() {
+        progressBar!.classList.remove('carousel-progress-bar');
+        void (progressBar as HTMLElement).offsetWidth;
+        progressBar!.classList.add('carousel-progress-bar');
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        resetProgress();
+        autoplayTimer = setInterval(nextSlide, AUTOPLAY_DELAY);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+      }
+
+      // Navigation events
+      nextBtn!.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+      prevBtn!.addEventListener('click', () => { prevSlide(); startAutoplay(); });
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt((dot as HTMLElement).dataset.dot!));
+          startAutoplay();
+        });
+      });
+
+      // Pause autoplay on hover, resume on leave
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      // Start autoplay
+      startAutoplay();
     }
 
     // ── Concept 2: Grainient WebGL Background ──
