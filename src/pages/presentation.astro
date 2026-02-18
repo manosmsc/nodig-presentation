@@ -99,6 +99,16 @@ import '../styles/global.css';
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
 
+    /* ── Concept 2: Innovation Pillars ── */
+    .c2-pillar {
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .c2-pillar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    }
+
     /* ── Concept 2: Cinematic Carousel ── */
     .carousel-slide-img {
       position: absolute;
@@ -544,6 +554,135 @@ import '../styles/global.css';
             </div>
             <h3 class="font-bold text-cast-iron text-sm mb-1">24/7 Έκτακτα</h3>
             <p class="text-pipe-gray text-xs">Πάντα διαθέσιμοι</p>
+          </div>
+        </div>
+
+        <!-- ── Process & Innovation Section ── -->
+        <div class="mb-20">
+          <div class="text-center mb-14 fade-up">
+            <p class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em] mb-2">Γιατί Εμάς</p>
+            <h2 class="text-2xl md:text-3xl font-black text-cast-iron tracking-tight">Καινοτομία σε Κάθε Βήμα</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- PROCESS COLUMN -->
+            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up">
+              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Η Διαδικασία</p>
+
+              <div class="space-y-0">
+                <!-- Step 1 -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">01</div>
+                    <div class="w-px flex-1 bg-gradient-to-b from-brand-orange/40 to-pipe-gray/15 my-1"></div>
+                  </div>
+                  <div class="pb-6">
+                    <h4 class="font-bold text-cast-iron text-sm mb-1">Διάγνωση</h4>
+                    <p class="text-pipe-gray text-xs leading-relaxed">Βιντεοσκόπηση & ακριβής χαρτογράφηση του αγωγού σας</p>
+                  </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-cast-iron text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">02</div>
+                    <div class="w-px flex-1 bg-gradient-to-b from-pipe-gray/30 to-pipe-gray/10 my-1"></div>
+                  </div>
+                  <div class="pb-6">
+                    <h4 class="font-bold text-cast-iron text-sm mb-1">Σχεδιασμός</h4>
+                    <p class="text-pipe-gray text-xs leading-relaxed">Εξατομικευμένη λύση προσαρμοσμένη στις ανάγκες σας</p>
+                  </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full bg-cast-iron text-white flex items-center justify-center text-[11px] font-bold flex-shrink-0">03</div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-cast-iron text-sm mb-1">Εκτέλεση</h4>
+                    <p class="text-pipe-gray text-xs leading-relaxed">Αποκατάσταση σε λιγότερο από 24 ώρες</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- INNOVATION COLUMN -->
+            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up fade-up-delay-1">
+              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Καινοτομία</p>
+
+              <div class="mb-6">
+                <p class="text-5xl md:text-6xl font-black text-cast-iron tracking-tighter leading-none">
+                  0<span class="text-brand-orange">cm</span>
+                </p>
+                <p class="text-cast-iron font-bold text-lg mt-2">Εκσκαφής</p>
+              </div>
+
+              <p class="text-pipe-gray text-sm leading-relaxed mb-6">
+                Η τεχνολογία CIPP δημιουργεί νέο σωλήνα μέσα στον παλιό. Κανένα σκάψιμο. Κανένα μπάζο. Κανένα χάος.
+              </p>
+
+              <div class="flex items-center gap-3 pt-5 border-t border-pipe-gray/10">
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  <span class="text-cast-iron text-xs font-semibold">50+ χρόνια ζωή</span>
+                </div>
+                <div class="w-px h-4 bg-pipe-gray/15"></div>
+                <div class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                  <span class="text-cast-iron text-xs font-semibold">CE Certified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- DIFFERENTIATION COLUMN -->
+            <div class="c2-pillar bg-ambient-light rounded-2xl border border-pipe-gray/10 p-8 fade-up fade-up-delay-2">
+              <p class="text-brand-orange text-xs font-bold uppercase tracking-[0.2em] mb-6">Η Διαφορά</p>
+
+              <!-- No Dig -->
+              <div class="mb-5">
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-brand-orange"></div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-cast-iron">No Dig</span>
+                </div>
+                <ul class="space-y-2.5 pl-[18px]">
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    <span class="text-cast-iron text-xs">Μηδέν εκσκαφή</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    <span class="text-cast-iron text-xs">Ολοκλήρωση σε ώρες</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    <span class="text-cast-iron text-xs">Εγγύηση 10+ ετών</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Traditional -->
+              <div class="pt-5 border-t border-pipe-gray/10">
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="w-2.5 h-2.5 rounded-full bg-pipe-gray/30"></div>
+                  <span class="text-xs font-bold uppercase tracking-wider text-pipe-gray">Παραδοσιακή Μέθοδος</span>
+                </div>
+                <ul class="space-y-2.5 pl-[18px]">
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+                    <span class="text-pipe-gray text-xs">Εκτεταμένο σκάψιμο</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+                    <span class="text-pipe-gray text-xs">Εβδομάδες εργασιών</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-red-400/60 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+                    <span class="text-pipe-gray text-xs">Αβέβαιη αντοχή</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
 
