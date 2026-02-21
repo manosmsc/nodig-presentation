@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+.vercel
+
+# OSM data & extraction scripts
+*.pbf
+*.cjs
+greece-*.svg
+greece-*.txt

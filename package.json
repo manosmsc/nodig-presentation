@@ -13,5 +13,10 @@
     "astro": "^5.17.1",
     "ogl": "^1.0.11",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "geojson2svg": "^2.0.3",
+    "osm-pbf-parser": "^2.3.0",
+    "through2": "^4.0.2"
   }
 }
